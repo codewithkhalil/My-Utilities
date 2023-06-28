@@ -3,7 +3,7 @@ import { HiMenuAlt3, HiOutlineUsers } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import { RxDashboard } from 'react-icons/rx'
 import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai'
-import { BsChatLeft, BsMoon, BsPersonGear, BsSun } from 'react-icons/bs'
+import { BsChatLeft, BsPersonGear } from 'react-icons/bs'
 import LOGO from '../assets/profile.png'
 import ICON from '../assets/icon.png'
 import  Divider  from './Divider'
@@ -11,20 +11,6 @@ import { Switch } from 'antd'
 
 const Sidenav = () => {
     const [open, setOpen] = useState(true)
-    const [theme, setTheme] = useState("light")
-
-    useEffect(() => {
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark")
-      }else{
-        document.documentElement.classList.remove("dark")
-      }
-    }, [theme])
-
-
-    const handleThemeSwitch = () => {
-        setTheme(theme === "dark" ? "light" : "dark") 
-    }
     
   return (
     <div className={`min-h-screen ${open ? 'w-64' : 'w-16'} bg-white dark:bg-dark-primary p-3`}>
@@ -118,18 +104,7 @@ const Sidenav = () => {
                 </h2>
             </Link>
         </div>
-        {/* <button onClick={handleThemeSwitch} className="bg-red-500">
-            Dark Mode
-        </button> */}
-        <div className="absolute bottom-16">
-            <Switch
-                checkedChildren={<BsSun className='flex items-center justify-center mt-[2px]' size={16}/>}
-                unCheckedChildren={<BsMoon className='flex items-center justify-center mt-[6px]' size={16}/>}
-                defaultChecked
-                onClick={handleThemeSwitch}
-                className={`flex items-center justify-center bg-black ${open && 'ml-2'} w-12`}
-            />
-        </div>
+
     </div>
   )
 }
